@@ -1,21 +1,19 @@
 {
   "onboardingConfig": {
-    "deviceOnboardingId": "NAME",
-    "mnId": "MNID",
-    "setupId": "999",
-    "vid": "VID",
-    "deviceTypeId": "TYPE",
+    "deviceOnboardingId": "esp32s2_light",
+    "mnId": "fwqA",
+    "setupId": "002",
+    "vid": "ST_f853a556-5287-47a9-b95f-9ff78086df6c",
+    "deviceTypeId": "Light",
     "ownershipValidationTypes": [
-      "JUSTWORKS",
-      "BUTTON",
-      "PIN",
-      "QR"
+      "JUSTWORKS"
     ],
     "identityType": "ED25519",
     "deviceIntegrationProfileKey": {
-      "id": "DIP_UUID",
+      "id": "f35f17d6-d272-43ed-9b9c-bd34ed148d0e",
       "majorVersion": 0,
       "minorVersion": 1
-    }
+    },
+    "productId": "ae6c4d8a-4be2-4080-b6a8-b1d41e0ea580"
   }
 }
