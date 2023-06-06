@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "iot_debug.h": "c",
+        "freertos.h": "c",
+        "esp_event.h": "c",
+        "iot_bsp_wifi.h": "c",
+        "esp_netif.h": "c",
+        "iot_os_util.h": "c",
+        "iot_util.h": "c"
+    }
+}
