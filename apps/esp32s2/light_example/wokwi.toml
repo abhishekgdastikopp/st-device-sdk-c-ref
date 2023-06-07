@@ -2,3 +2,7 @@
 version = 1
 elf = "build/light_example.elf"
 firmware = "build/light_example.bin"
+
+[[net.forward]]
+from = "192.168.137.1:8888"
+to = "target:9988"
