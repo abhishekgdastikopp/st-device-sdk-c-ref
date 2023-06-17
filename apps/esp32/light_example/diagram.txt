@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "author": "Abhishek D",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -17.47,
+      "left": -188.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -18.8,
+      "left": -145.53,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -18.14,
+      "left": -99.53,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 85.4,
+      "left": 135.6,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D26", "led1:C", "black", [ "h0" ] ],
+    [ "led2:C", "esp:D26", "black", [ "v0" ] ],
+    [ "led3:C", "esp:D26", "black", [ "v0" ] ],
+    [ "esp:D12", "led1:A", "red", [ "h0" ] ],
+    [ "esp:D14", "led2:A", "green", [ "h0" ] ],
+    [ "esp:D27", "led3:A", "blue", [ "h0" ] ],
+    [ "esp:D18", "btn1:1.l", "violet", [ "h18.87", "v-41.63" ] ],
+    [ "esp:GND.1", "btn1:2.l", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
