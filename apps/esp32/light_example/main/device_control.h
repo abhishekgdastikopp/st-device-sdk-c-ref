@@ -17,7 +17,7 @@
  ****************************************************************************/
 
 
-#define CONFIG_TARGET_WEMOS_D1_R32
+//#define CONFIG_TARGET_WEMOS_D1_R32
 #ifdef CONFIG_TARGET_WEMOS_D1_R32
 
 #define GPIO_INPUT_BUTTON 18
@@ -29,7 +29,7 @@
 
 #else // ESP32_DEVKITC_V4
 
-#define GPIO_INPUT_BUTTON 18
+#define GPIO_INPUT_BUTTON 0
 
 #define GPIO_OUTPUT_COLORLED_R 12
 #define GPIO_OUTPUT_COLORLED_G 14
