@@ -6,6 +6,8 @@
         "iot_bsp_wifi.h": "c",
         "esp_netif.h": "c",
         "iot_os_util.h": "c",
-        "iot_util.h": "c"
+        "iot_util.h": "c",
+        "platform.h": "c",
+        "net.h": "c"
     }
 }
