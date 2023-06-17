@@ -9,5 +9,9 @@
         "iot_util.h": "c",
         "platform.h": "c",
         "net.h": "c"
-    }
+    },
+    "idf.adapterTargetName": "esp32",
+    "idf.openOcdConfigs": [
+        "board/esp32-wrover-kit-3.3v.cfg"
+    ]
 }
