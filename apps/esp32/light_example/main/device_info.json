@@ -1,8 +1,8 @@
 {
 	"deviceInfo": {
-		"firmwareVersion": "firmwareVersion_here",
-		"privateKey": "privateKey_here",
-		"publicKey": "publicKey_here",
-		"serialNumber": "serialNumber_here"
+		"firmwareVersion": "light_example_003",
+		"privateKey": "WwLOeBcPJrzUMunVggTKWq+hH5P6rxIJ+dr4p1STtuw=",
+		"publicKey": "0Zk4oDLXyF6/h4PzZuaBoe+wdRxak8ddeWjP4M47gro=",
+		"serialNumber": "STDK5ZGpLAAoJXV"
 	}
 }

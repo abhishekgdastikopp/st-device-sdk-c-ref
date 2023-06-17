@@ -1,21 +1,19 @@
 {
   "onboardingConfig": {
-    "deviceOnboardingId": "NAME",
-    "mnId": "MNID",
-    "setupId": "999",
-    "vid": "VID",
-    "deviceTypeId": "TYPE",
+    "deviceOnboardingId": "esp32_lightex",
+    "mnId": "fwqA",
+    "setupId": "003",
+    "vid": "ST_fac6f3e5-85fd-4ae3-bf55-4724dd954f4f",
+    "deviceTypeId": "Light",
     "ownershipValidationTypes": [
-      "JUSTWORKS",
-      "BUTTON",
-      "PIN",
-      "QR"
+      "JUSTWORKS"
     ],
     "identityType": "ED25519",
     "deviceIntegrationProfileKey": {
-      "id": "DIP_UUID",
+      "id": "991bd353-d4ab-4182-b221-64c6b64c10fb",
       "majorVersion": 0,
       "minorVersion": 1
-    }
+    },
+    "productId": "d3202b76-35da-4825-89bf-c5a49541ea72"
   }
 }
