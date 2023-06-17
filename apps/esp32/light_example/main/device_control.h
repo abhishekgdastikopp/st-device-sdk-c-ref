@@ -17,7 +17,7 @@
  ****************************************************************************/
 
 
-//#define CONFIG_TARGET_WEMOS_D1_R32
+#define CONFIG_TARGET_WEMOS_D1_R32
 #ifdef CONFIG_TARGET_WEMOS_D1_R32
 
 #define GPIO_INPUT_BUTTON 18
