@@ -8,7 +8,9 @@
         "iot_os_util.h": "c",
         "iot_util.h": "c",
         "platform.h": "c",
-        "net.h": "c"
+        "net.h": "c",
+        "*.ipp": "c",
+        "*.inc": "c"
     },
     "idf.adapterTargetName": "esp32",
     "idf.openOcdConfigs": [
