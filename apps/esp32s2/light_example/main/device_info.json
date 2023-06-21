@@ -1,8 +1,8 @@
 {
 	"deviceInfo": {
-		"firmwareVersion": "esp32s2_light_ex",
-		"privateKey": "lXC2SQWPxRgsGxfcmpE+pEyY4YHFssSF4cu4C295YZc=",
-		"publicKey": "8SBWDPy74hmFe7tU/QWyXKJDY9oiHIbb1pGcUsYcA0c=",
-		"serialNumber": "STDKO4919VDVQ1T"
+		"firmwareVersion": "esp32s2_swtich_004",
+		"privateKey": "pWB2dhL4FOupTUx/Tglcwnqbs/Umn9cZXD+QgN/18GQ=",
+		"publicKey": "2cuMeNERCR6iLgKSBtyBiVznUt2UqGaHPKrxnHwBGb8=",
+		"serialNumber": "STDKGBHdKpvgNUb"
 	}
 }
