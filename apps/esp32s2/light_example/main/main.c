@@ -261,12 +261,12 @@ void button_event(IOT_CAP_HANDLE *handle, int type, int count)
                     change_switch_state(get_switch_state());
                 } else {
                     if (get_switch_state() == SWITCH_ON) {
-                        noti_led_mode = LED_ANIMATION_MODE_IDLE;
+                        //noti_led_mode = LED_ANIMATION_MODE_IDLE;
                         change_switch_state(SWITCH_OFF);
                         cap_switch_data->set_switch_value(cap_switch_data, caps_helper_switch.attr_switch.value_off);
                         cap_switch_data->attr_switch_send(cap_switch_data);
                     } else {
-                        noti_led_mode = LED_ANIMATION_MODE_SLOW;
+                        //noti_led_mode = LED_ANIMATION_MODE_SLOW;
                         change_switch_state(SWITCH_ON);
                         cap_switch_data->set_switch_value(cap_switch_data, caps_helper_switch.attr_switch.value_on);
                         cap_switch_data->attr_switch_send(cap_switch_data);
