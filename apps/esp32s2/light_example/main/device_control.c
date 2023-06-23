@@ -24,17 +24,21 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 
-
 #include "esp_log.h"
 #include "driver/rmt.h"
 #include "led_strip.h"
+
+//#define CONFIG_LED_GPIO
+
+
+
 
 
 static int red_value;
 static int green_value;
 static int blue_value;
 
-#ifdef CONFIG_LED_RMT
+//#ifdef CONFIG_LED_RMT
 static led_strip_t *strip;
 static int onoff_state;
 
@@ -57,8 +61,17 @@ static void led_strip_init() {
 
 static void led_strip_update() {
     if (onoff_state == SWITCH_ON) {
+        printf("[Simulator] led_strip_update: State = ON\n");
+
+        gpio_set_level(GPIO1, 1);
+
+
         ESP_ERROR_CHECK(strip->set_pixel(strip, 0, red_value, green_value, blue_value));
     } else {
+        printf("[Simulator] led_strip_update: State = OFF\n");
+
+        gpio_set_level(GPIO1, 0);
+
         ESP_ERROR_CHECK(strip->set_pixel(strip, 0, 0, 0, 0));
     }
     ESP_ERROR_CHECK(strip->refresh(strip, 100));
@@ -74,7 +87,7 @@ static void led_strip_set_rgb(int red, int green, int blue) {
     green_value = green;
     blue_value = blue;
 }
-#endif //CONFIG_LED_RMT
+//#endif //CONFIG_LED_RMT
 
 static void update_rgb_from_color_temp(int color_temp, int *red, int *green, int *blue)
 {
@@ -113,8 +126,11 @@ static void update_rgb_from_color_temp(int color_temp, int *red, int *green, int
 
 void change_switch_state(int switch_state)
 {
+    printf("[Simulator] change_switch_state: enter\n");
+    printf("[Simulator] change_switch_state: switch_state = %d\n",switch_state);
 #ifdef CONFIG_LED_GPIO 
     if (switch_state == SWITCH_OFF) {
+        printf("[Simulator] change_switch_state: GPIO = %d\n",switch_state);
         gpio_set_level(GPIO_OUTPUT_COLORLED_R, COLOR_LED_OFF);
         gpio_set_level(GPIO_OUTPUT_COLORLED_G, COLOR_LED_OFF);
         gpio_set_level(GPIO_OUTPUT_COLORLED_B, COLOR_LED_OFF);
@@ -124,6 +140,7 @@ void change_switch_state(int switch_state)
         gpio_set_level(GPIO_OUTPUT_COLORLED_B, (blue_value > 127) ? COLOR_LED_ON : COLOR_LED_OFF);
     }
 #else
+    printf("[Simulator] change_switch_state: led_strip_onoff = %d\n",switch_state);
     led_strip_onoff(switch_state);
 #endif
 }
@@ -186,6 +203,7 @@ int get_button_event(int* button_event_type, int* button_event_count)
 
 void led_blink(int switch_state, int delay, int count)
 {
+    printf("[Simulator] led_blink: enter\n");
     for (int i = 0; i < count; i++) {
         vTaskDelay(delay / portTICK_PERIOD_MS);
         change_switch_state(1 - switch_state);
@@ -236,6 +254,15 @@ void change_led_mode(int noti_led_mode)
     }
 }
 
+void dev_ctrl_switch_on(){
+    change_switch_state(1);
+}
+
+void dev_ctrl_switch_off(){
+    change_switch_state(0);
+}
+
+
 void iot_gpio_init(void)
 {
     gpio_config_t io_conf;
@@ -246,6 +273,7 @@ void iot_gpio_init(void)
     io_conf.pull_up_en = 0;
 
 #ifdef CONFIG_LED_GPIO
+    printf("[Simulator] iot_gpio_init: configuration set to CONFIG_LED_GPIO\n");
     io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_COLORLED_R;
     gpio_config(&io_conf);
     io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_COLORLED_G;
@@ -275,5 +303,8 @@ void iot_gpio_init(void)
     led_strip_init();
     led_strip_set_rgb(DEFAULT_RED_VALUE, DEFAULT_GREEN_VALUE, DEFAULT_BLUE_VALUE);
     led_strip_onoff(SWITCH_ON);
+    io_conf.pin_bit_mask = 1 << GPIO1;
+    gpio_config(&io_conf);
+    gpio_set_level(GPIO1, 1);
 #endif
 }

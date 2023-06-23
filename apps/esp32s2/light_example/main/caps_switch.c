@@ -23,6 +23,10 @@
 #include "st_dev.h"
 #include "caps_switch.h"
 
+extern void dev_ctrl_switch_on();
+
+extern void dev_ctrl_switch_off();
+
 static int caps_switch_attr_switch_str2idx(const char *value)
 {
     int index;
@@ -93,7 +97,14 @@ static void caps_switch_cmd_on_cb(IOT_CAP_HANDLE *handle, iot_cap_cmd_data_t *cm
 
     caps_switch_set_switch_value(caps_data, value);
     if (caps_data && caps_data->cmd_on_usr_cb)
+    {
+        printf("[Simulator] calling application switch on callback\n");
         caps_data->cmd_on_usr_cb(caps_data);
+        
+    }
+        
+
+    //dev_ctrl_switch_on();
     caps_switch_attr_switch_send(caps_data);
 }
 
@@ -105,8 +116,12 @@ static void caps_switch_cmd_off_cb(IOT_CAP_HANDLE *handle, iot_cap_cmd_data_t *c
     printf("called [%s] func with num_args:%u\n", __func__, cmd_data->num_args);
 
     caps_switch_set_switch_value(caps_data, value);
-    if (caps_data && caps_data->cmd_off_usr_cb)
+    if (caps_data && caps_data->cmd_off_usr_cb){
+        printf("[Simulator] calling application switch off callback\n");
         caps_data->cmd_off_usr_cb(caps_data);
+    }
+        
+    //dev_ctrl_switch_off();
     caps_switch_attr_switch_send(caps_data);
 }
 

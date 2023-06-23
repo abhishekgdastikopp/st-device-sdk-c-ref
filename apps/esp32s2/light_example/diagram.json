@@ -3,25 +3,29 @@
   "author": "Abhishek D",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-esp32-s2-devkitm-1", "id": "esp", "top": 48.4, "left": -5.39, "attrs": {} },
+    { "type": "board-esp32-s2-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
-      "top": 62.25,
-      "left": -124.13,
-      "attrs": { "color": "grey", "bounce": "0" }
+      "top": 16.33,
+      "left": -142,
+      "attrs": { "color": "green" }
     },
-    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -37.06, "left": 130.03, "attrs": {} }
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -54.53,
+      "left": 116.47,
+      "attrs": { "color": "red" }
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
-    [ "esp:0", "btn1:1.r", "violet", [ "h0" ] ],
-    [ "esp:GND.1", "btn1:2.r", "black", [ "h0" ] ],
-    [ "esp:13", "rgb1:R", "red", [ "h-32.97", "v-191.78" ] ],
-    [ "rgb1:COM", "esp:10", "black", [ "v8.26", "h-164.03", "v154.67" ] ],
-    [ "rgb1:G", "esp:12", "green", [ "h0.24", "v278.26", "h-165.15", "v-88.49" ] ],
-    [ "rgb1:B", "esp:11", "blue", [ "v289.59", "h-190.4", "v-109.33" ] ]
+    [ "btn1:1.r", "esp:0", "green", [ "v0" ] ],
+    [ "led1:A", "esp:40", "green", [ "v0" ] ],
+    [ "esp:GND.2", "led1:C", "black", [ "h0" ] ],
+    [ "esp:GND.1", "btn1:2.r", "black", [ "h0" ] ]
   ],
   "dependencies": {}
 }

@@ -16,9 +16,9 @@
  *
  ****************************************************************************/
 
-#define DEFAULT_RED_VALUE 255 //MAX 255
+#define DEFAULT_RED_VALUE 0 //MAX 255
 #define DEFAULT_GREEN_VALUE 0 //MAX 255
-#define DEFAULT_BLUE_VALUE 0 //MAX 255
+#define DEFAULT_BLUE_VALUE 255 //MAX 255
 
 #define GPIO_INPUT_BUTTON 0
 
@@ -26,6 +26,8 @@
 #define GPIO_OUTPUT_COLORLED_G 12
 #define GPIO_OUTPUT_COLORLED_B 11
 #define GPIO_OUTPUT_COLORLED_0 10
+
+#define GPIO1 40
 
 enum switch_onoff_state {
     SWITCH_OFF = 0,
