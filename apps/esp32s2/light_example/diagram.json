@@ -12,16 +12,9 @@
       "attrs": { "color": "green" }
     },
     {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": 42.97,
-      "left": 47.47,
-      "attrs": { "color": "purple", "flip": "1" }
-    },
-    {
       "type": "wokwi-gate-not",
       "id": "not1",
-      "top": 155.84,
+      "top": 146.53,
       "left": -184.31,
       "rotate": 180,
       "attrs": {}
@@ -37,7 +30,7 @@
     {
       "type": "wokwi-gate-not",
       "id": "not3",
-      "top": 120.48,
+      "top": 127.79,
       "left": -183.87,
       "rotate": 180,
       "attrs": {}
@@ -49,8 +42,6 @@
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
     [ "btn1:1.r", "esp:0", "green", [ "v0" ] ],
     [ "btn1:2.r", "esp:GND.1", "black", [ "h3.85", "v163.37" ] ],
-    [ "esp:2", "led1:A", "gray", [ "h-16.38", "v-60.55", "h114.53", "v80.57" ] ],
-    [ "led1:C", "esp:GND.1", "black", [ "v158.76", "h-111.17" ] ],
     [ "rgb2:G", "not2:OUT", "green", [ "v51.83", "h-0.13", "v61.5" ] ],
     [ "rgb2:B", "not3:OUT", "blue", [ "v51.83", "h-0.09", "v43.88" ] ],
     [ "esp:12", "not2:IN", "green", [ "h-15.96", "v-39.88" ] ],
