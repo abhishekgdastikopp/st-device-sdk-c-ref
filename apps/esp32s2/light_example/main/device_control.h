@@ -12,22 +12,22 @@
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
  * either express or implied. See the License for the specific
- * language governing permissions and limitations under the License.
+ * language governing permissions and limitations under the License.    
  *
  ****************************************************************************/
 
-#define DEFAULT_RED_VALUE 0 //MAX 255
+#define DEFAULT_RED_VALUE 255 //MAX 255
 #define DEFAULT_GREEN_VALUE 0 //MAX 255
-#define DEFAULT_BLUE_VALUE 255 //MAX 255
+#define DEFAULT_BLUE_VALUE 0 //MAX 255
 
 #define GPIO_INPUT_BUTTON 0
 
-#define GPIO_OUTPUT_COLORLED_R 13
-#define GPIO_OUTPUT_COLORLED_G 12
-#define GPIO_OUTPUT_COLORLED_B 11
-#define GPIO_OUTPUT_COLORLED_0 10
+#define GPIO_OUTPUT_COLORLED_R GPIO_NUM_13
+#define GPIO_OUTPUT_COLORLED_G GPIO_NUM_12
+#define GPIO_OUTPUT_COLORLED_B GPIO_NUM_11
+#define GPIO_OUTPUT_COLORLED_0 GPIO_NUM_10
 
-#define GPIO1 40
+#define GPIO1 GPIO_NUM_2
 
 enum switch_onoff_state {
     SWITCH_OFF = 0,

@@ -3,29 +3,61 @@
   "author": "Abhishek D",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-esp32-s2-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-esp32-s2-devkitm-1", "id": "esp", "top": 12.64, "left": -53.73, "attrs": {} },
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
-      "top": 16.33,
-      "left": -142,
+      "top": 32.57,
+      "left": -142.1,
       "attrs": { "color": "green" }
     },
     {
       "type": "wokwi-led",
       "id": "led1",
-      "top": -54.53,
-      "left": 116.47,
-      "attrs": { "color": "red" }
-    }
+      "top": 42.97,
+      "left": 47.47,
+      "attrs": { "color": "purple", "flip": "1" }
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not1",
+      "top": 155.84,
+      "left": -184.31,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not2",
+      "top": 137.44,
+      "left": -184.11,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not3",
+      "top": 120.48,
+      "left": -183.87,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb2", "top": 27.17, "left": -239.75, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
     [ "btn1:1.r", "esp:0", "green", [ "v0" ] ],
-    [ "led1:A", "esp:40", "green", [ "v0" ] ],
-    [ "esp:GND.2", "led1:C", "black", [ "h0" ] ],
-    [ "esp:GND.1", "btn1:2.r", "black", [ "h0" ] ]
+    [ "btn1:2.r", "esp:GND.1", "black", [ "h3.85", "v163.37" ] ],
+    [ "esp:2", "led1:A", "gray", [ "h-16.38", "v-60.55", "h114.53", "v80.57" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v158.76", "h-111.17" ] ],
+    [ "rgb2:G", "not2:OUT", "green", [ "v51.83", "h-0.13", "v61.5" ] ],
+    [ "rgb2:B", "not3:OUT", "blue", [ "v51.83", "h-0.09", "v43.88" ] ],
+    [ "esp:12", "not2:IN", "green", [ "h-15.96", "v-39.88" ] ],
+    [ "esp:13", "not1:IN", "red", [ "h-27.96", "v-32.82" ] ],
+    [ "esp:5V", "rgb2:COM", "orange", [ "h0" ] ],
+    [ "rgb2:R", "not1:OUT", "red", [ "v0" ] ],
+    [ "esp:11", "not3:IN", "blue", [ "h-28.71", "v-9.01" ] ]
   ],
   "dependencies": {}
 }

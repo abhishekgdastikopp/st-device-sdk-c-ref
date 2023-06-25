@@ -64,6 +64,9 @@ static void led_strip_update() {
         printf("[Simulator] led_strip_update: State = ON\n");
 
         gpio_set_level(GPIO1, 1);
+        gpio_set_level(GPIO_OUTPUT_COLORLED_R, (red_value > 127) ? COLOR_LED_ON : COLOR_LED_OFF);
+        gpio_set_level(GPIO_OUTPUT_COLORLED_G, (green_value > 127) ? COLOR_LED_ON : COLOR_LED_OFF);
+        gpio_set_level(GPIO_OUTPUT_COLORLED_B, (blue_value > 127) ? COLOR_LED_ON : COLOR_LED_OFF);
 
 
         ESP_ERROR_CHECK(strip->set_pixel(strip, 0, red_value, green_value, blue_value));
@@ -71,7 +74,9 @@ static void led_strip_update() {
         printf("[Simulator] led_strip_update: State = OFF\n");
 
         gpio_set_level(GPIO1, 0);
-
+        gpio_set_level(GPIO_OUTPUT_COLORLED_R, COLOR_LED_OFF);
+        gpio_set_level(GPIO_OUTPUT_COLORLED_G, COLOR_LED_OFF);
+        gpio_set_level(GPIO_OUTPUT_COLORLED_B, COLOR_LED_OFF);
         ESP_ERROR_CHECK(strip->set_pixel(strip, 0, 0, 0, 0));
     }
     ESP_ERROR_CHECK(strip->refresh(strip, 100));
@@ -283,7 +288,17 @@ void iot_gpio_init(void)
     io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_COLORLED_0;
     gpio_config(&io_conf);
 #endif
-
+    //printf("[Simulator] iot_gpio_init: configuration set to CONFIG_LED_GPIO\n");
+    io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_COLORLED_R;
+    gpio_config(&io_conf);
+    io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_COLORLED_G;
+    gpio_config(&io_conf);
+    io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_COLORLED_B;
+    gpio_config(&io_conf);
+    io_conf.pin_bit_mask = 1 << GPIO_OUTPUT_COLORLED_0;
+    gpio_config(&io_conf);
+    io_conf.pin_bit_mask = 1 << GPIO1;
+    gpio_config(&io_conf);
     io_conf.intr_type = GPIO_INTR_ANYEDGE;
     io_conf.mode = GPIO_MODE_INPUT;
     io_conf.pin_bit_mask = 1 << GPIO_INPUT_BUTTON;
@@ -303,8 +318,11 @@ void iot_gpio_init(void)
     led_strip_init();
     led_strip_set_rgb(DEFAULT_RED_VALUE, DEFAULT_GREEN_VALUE, DEFAULT_BLUE_VALUE);
     led_strip_onoff(SWITCH_ON);
-    io_conf.pin_bit_mask = 1 << GPIO1;
-    gpio_config(&io_conf);
+    //ESP_ERROR_CHECK(strip->set_pixel(strip, 0, red_value, green_value, blue_value));
+    gpio_set_level(GPIO_OUTPUT_COLORLED_R, 1);
+    gpio_set_level(GPIO_OUTPUT_COLORLED_G, 0);
+    gpio_set_level(GPIO_OUTPUT_COLORLED_B, 0);
+    gpio_set_level(GPIO_OUTPUT_COLORLED_0, 0);
     gpio_set_level(GPIO1, 1);
 #endif
 }
