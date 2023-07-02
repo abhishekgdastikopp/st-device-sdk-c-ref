@@ -28,3 +28,6 @@
 [submodule "bsp/esp32s2"]
 	path = bsp/esp32s2
 	url = https://github.com/abhishekgdastikopp/esp-idf
+[submodule "iot-core"]
+	path = iot-core
+	url = https://github.com/abhishekgdastikopp/st-device-sdk-c
